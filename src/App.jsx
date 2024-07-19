@@ -3,8 +3,10 @@ import { useState } from 'react'
 import { products as initialProducts } from '../mocks/products.json'
 
 import Products from '../components/Products/Products'
+import Header from '../components/Header'
+import { Filters } from '../components/Filters/Filters'
 
-function App () {
+const App = () => {
   const [products] = useState(initialProducts)
   const [filters, setFilters] = useState({
     category: 'all',
@@ -22,9 +24,13 @@ function App () {
       )
     })
   }
+  const filteredProducts = filterProducts(products)
   return (
     <>
-      <Products products={filterProducts(products)} />
+      <Header>
+        <Filters onChange={setFilters} />
+      </Header>
+      <Products products={filteredProducts} />
     </>
   )
 }
