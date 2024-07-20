@@ -12,14 +12,14 @@ import useFilter from './hooks/useFilters'
 const App = () => {
   const [products] = useState(initialProducts)
 
-  const { filters, filterProducts } = useFilter()
+  const { filterProducts } = useFilter()
   const filteredProducts = filterProducts(products)
 
   return (
     <>
       <Header />
       <Products products={filteredProducts} />
-      {IS_DEVELOPMENT && (<Footer filters={filters} />)}
+      {IS_DEVELOPMENT && (<Footer />)}
     </>
   )
 }
