@@ -1,6 +1,8 @@
+import useFilter from '../../hooks/useFilters'
 import './Footer.css'
 
-const Footer = ({ filters }) => {
+const Footer = () => {
+  const { filters } = useFilter()
   return (
     <footer className='footer'>
       {/* <h4>Prueba Tecnica React ⚛️</h4>
